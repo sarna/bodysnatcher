@@ -3,5 +3,5 @@
 
 require 'bodysnatcher'
 
-bs = Bodysnatcher::Bodysnatcher.new(ARGV[0])
-bs.walk
+walker = Bodysnatcher::Walker.new(ARGV[0])
+walker.walk
