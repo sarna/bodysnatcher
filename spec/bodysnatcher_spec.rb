@@ -50,5 +50,36 @@ RSpec.describe Bodysnatcher do
         expect(link1.eql?(link2)).to be false
       end
     end
+
+    describe 'Walker' do
+      describe '#walk' do
+        it 'returns empty list when there are no dead links' do
+          VCR.use_cassette('no_dead_links') do
+            walker = Bodysnatcher::Walker.new('http://localhost:8080/')
+            dead_links = walker.walk
+
+            expect(dead_links).to be_empty
+          end
+        end
+
+        it 'returns dead links when link is not working' do
+          root = 'http://localhost:8080/'
+          url1 = 'http://localhost:8080/names'
+          url2 = 'http://localhost:3000/names'
+
+          links = [Bodysnatcher::Link.new(url2, ''),
+                   Bodysnatcher::Link.new(url1, '')]
+
+          VCR.use_cassette('with_dead_links') do
+            walker = Bodysnatcher::Walker.new(root, links)
+            dead_links = walker.walk
+
+            expect(dead_links).not_to be_empty
+            expect(dead_links.count).to eq(1)
+            expect(dead_links.first.first.url).to eq(url2)
+          end
+        end
+      end
+    end
   end
 end

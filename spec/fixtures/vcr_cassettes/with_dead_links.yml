@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/names
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 0
+      message:
+    headers: {}
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 08:59:23 GMT
+- request:
+    method: get
+    uri: http://localhost:8080/names
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 19 Oct 2019 08:59:23 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: Hello World!
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 08:59:23 GMT
+- request:
+    method: get
+    uri: http://localhost:8080/names
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 19 Oct 2019 08:59:23 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: Hello World!
+    http_version:
+  recorded_at: Sat, 19 Oct 2019 08:59:23 GMT
+recorded_with: VCR 5.0.0
