@@ -85,7 +85,7 @@ module Bodysnatcher
     end
 
     def should_be_visited(url, root = self.root)
-      url.start_with?(root) && !url.include?('#')
+      url.start_with?(root) && !url.include?('#') && !url.include?('mailto:')
     end
 
     def get_links_from(site = root)
