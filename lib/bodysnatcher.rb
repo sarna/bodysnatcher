@@ -17,7 +17,7 @@ module Bodysnatcher
     end
 
     def hash
-      [url, origin].hash
+      [url].hash
     end
 
     def eql?(other)
@@ -67,12 +67,20 @@ module Bodysnatcher
       response = get url
       Nokogiri::HTML response.body
     end
+    
+    def merge(this, other)
+      i = 0
+      while not other.start_with?(this[i, this.length])
+        i += 1
+      end
+      this[0, i] + other
+    end
 
     def absolutify(url, root = self.root)
       if %r{^([a-z]+://|//)}i =~ url
-        url
+        url 
       else
-        root + url
+          merge(root, url)
       end
     end
 
