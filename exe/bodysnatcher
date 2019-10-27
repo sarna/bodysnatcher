@@ -3,5 +3,9 @@
 
 require 'bodysnatcher'
 
-walker = Bodysnatcher::Walker.new(ARGV[0])
-walker.walk
+if ARGV.count == 0
+    puts "Please provide the URL to start on."
+else
+    walker = Bodysnatcher::Walker.new(ARGV[0])
+    walker.walk
+end
