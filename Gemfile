@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in bodysnatcher.gemspec
 gemspec
 
-gem "nokogiri", "~> 1.10"
+gem "nokogiri", "~> 1.11"
 
 gem "typhoeus", "~> 1.3"
 
